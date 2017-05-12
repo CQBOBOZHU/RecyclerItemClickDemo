@@ -11,7 +11,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter.ItemClickListener {
+public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter.ItemClickListener,MyRecyclerAdapter.ItemLongClickListener {
     RecyclerView recyclerView;
     String[] md = new String[20];
     MyRecyclerAdapter adapter;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter
         recyclerView.setAdapter(adapter);
         //方法一:
 //        adapter.setItemClickListener(this);
-
+//        adapter.setItemLongClickListener(this);
 //        //方法二:
 
 //        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
@@ -84,5 +84,10 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerAdapter
     @Override
     public void itemClick(int position) {
         Toast.makeText(this, "adapter 设置item点击" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void itemLongClick(int position) {
+        Toast.makeText(this, "adapter 设置item长按" + position, Toast.LENGTH_SHORT).show();
     }
 }
